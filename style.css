@@ -1,0 +1,190 @@
+/*
+ * style.css
+ * HRS Design Custom Stylesheet
+ * Optimized for professionalism, readability, and modern aesthetics.
+ */
+
+/* ------------------ BASE & RESET ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Variables defined in index.html are inherited */
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* ------------------ TYPOGRAPHY & HEADINGS (SEO Focus) ------------------ */
+h1 {
+    font-size: 3.5rem; /* Large and impactful */
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color); /* Use blue for section titles */
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* ------------------ LAYOUT CONTAINERS ------------------ */
+section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ------------------ HEADER & NAVIGATION ------------------ */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+nav a {
+    margin-left: 25px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* ------------------ HERO SECTION ------------------ */
+#hero {
+    min-height: 80vh; /* Make it take up most of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--bg-light); /* Or a light gradient for flair */
+}
+
+#hero p {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+/* ------------------ UNIQUE VALUE SECTION ------------------ */
+#value {
+    background-color: var(--white); /* White background to make it stand out */
+    text-align: center;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.advantage-grid div {
+    padding: 30px;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    text-align: left;
+    border-top: 5px solid var(--secondary-color); /* Highlight border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ------------------ CONTACT SECTION ------------------ */
+#contact {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 80px 5%;
+}
+
+#contact h2, #contact p {
+    color: var(--white);
+}
+
+#contact h2 {
+    border-bottom-color: var(--secondary-color);
+}
+
+/* Override primary button for contrast on dark background */
+#contact .button-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-size: 1.2rem;
+}
+#contact .button-primary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+    padding: 20px 5%;
+    text-align: center;
+    background-color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--secondary-color);
+    margin: 0 10px;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+/* ------------------ MOBILE RESPONSIVENESS (Better than competitor sites) ------------------ */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    nav {
+        display: none; /* In a real project, this would be a hamburger menu */
+    }
+    header {
+        justify-content: center;
+    }
+}
