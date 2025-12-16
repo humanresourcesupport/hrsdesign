@@ -3,8 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRSGRAPHIC | Siliguri Digital Strategy & Design</title>
+    <title>HRSGRAPHIC | Siliguri Digital Strategy</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Animation Logic - Added here for instant result */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding-top: 40px;
+        }
+
+        .round-logo {
+            width: 140px; /* Professional smaller size */
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%; /* Perfect circle */
+            border: 4px solid #FFD700; /* Yellow brand border */
+            filter: grayscale(100%);
+            transition: 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: float 4s ease-in-out infinite; /* The floating movement */
+        }
+
+        .round-logo:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            border-color: #ffffff;
+        }
+
+        .hero {
+            text-align: center; /* Centers all text and the button */
+        }
+    </style>
 </head>
 <body>
 
@@ -18,9 +55,12 @@
 </nav>
 
 <header class="hero">
-    <div style="margin-bottom: 40px;" class="about-image">
-        <img src="https://i.ibb.co/qF5vvMbx/IMG-20251213-023411-322.webp" alt="HRSGRAPHIC Founder" style="max-width: 250px; border: 3px solid var(--yellow);">
+    <div class="profile-wrapper">
+        <img src="https://i.ibb.co/qF5vvMbx/IMG-20251213-023411-322.webp" 
+             alt="HRSGRAPHIC Founder" 
+             class="round-logo">
     </div>
+
     <h1>BE IMPOSSIBLE <br>TO <span class="highlight-box">IGNORE.</span></h1>
     <p>I build high-ranking websites and bold brands for businesses in Siliguri.</p>
     <a href="work.html" class="yellow-btn">VIEW MY PROJECTS</a>
@@ -29,33 +69,30 @@
 <section class="service-grid">
     <a href="siliguri/seo-for-shops-in-siliguri.html" class="s-card">
         <h3>01. LOCAL SEO</h3>
-        <p>Get your Siliguri shop to the top of Google Maps and Search results.</p>
+        <p>Dominating Google Search and Maps for local Siliguri businesses.</p>
     </a>
     
     <a href="services/website-design-for-local-business.html" class="s-card">
         <h3>02. WEB DESIGN</h3>
-        <p>Fast, clean, and built for West Bengal's mobile-first audience.</p>
+        <p>Clean, high-performance sites built to convert visitors into customers.</p>
     </a>
 
     <a href="services/branding-and-graphics.html" class="s-card">
         <h3>03. BRANDING</h3>
-        <p>Visual identities that command respect in a crowded local market.</p>
+        <p>Visual identities that stick. Bold designs for a modern market.</p>
     </a>
 </section>
 
 <footer>
-    <div class="footer-title">Follow The Process</div>
-    <div class="social-links">
+    <div class="social-links" style="justify-content: center;">
         <a href="#" class="social-circle">IG</a>
         <a href="#" class="social-circle">FB</a>
         <a href="#" class="social-circle">LN</a>
     </div>
     
-    <div class="footer-meta">
+    <div class="footer-meta" style="text-align: center;">
         <p>© 2025 HRSGRAPHIC. All rights reserved.</p>
         <p>Siliguri, West Bengal.</p>
-        <br>
-        <a href="blog.html" style="color:var(--yellow); text-decoration:none; font-weight:bold;">READ ADVICE BLOG →</a>
     </div>
 </footer>
 
