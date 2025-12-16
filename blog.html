@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Advice | hrsgraphic - Siliguri Digital Strategy</title>
+    <style>
+        :root {
+            --yellow: #FFD700;
+            --black: #111111;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Helvetica', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+
+        .blog-header {
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            text-transform: uppercase;
+            line-height: 0.8;
+            margin: 0;
+        }
+
+        .highlight { color: var(--yellow); }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px; /* Creates the thin line look */
+            background: #333; /* Line color between items */
+        }
+
+        .article-card {
+            background: var(--black);
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            align-items: center;
+            transition: 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .article-card:hover { background: #1a1a1a; }
+        .article-card:hover .title { color: var(--yellow); }
+
+        .number { font-weight: 900; font-size: 1.2rem; color: #444; }
+        .title { font-size: 1.8rem; font-weight: bold; text-transform: uppercase; }
+        .arrow { color: var(--yellow); font-size: 1.5rem; padding-right: 20px; }
+
+        @media (max-width: 600px) {
+            .article-card { grid-template-columns: 50px 1fr; }
+            .arrow { display: none; }
+            .title { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="blog-header">
+        <p style="letter-spacing: 5px; color: var(--yellow);">RESOURCES // 2025</p>
+        <h1>ADVICE <br><span class="highlight">CATALOG.</span></h1>
+    </div>
+
+    <div class="article-list">
+        <a href="blog/how-local-businesses-get-google-leads.html" class="article-card">
+            <div class="number">01</div>
+            <div class="title">How Local Businesses Get Google Leads</div>
+            <div class="arrow">→</div>
+        </a>
+
+        <a href="blog/seo-vs-social-media-for-local-business.html" class="article-card">
+            <div class="number">02</div>
+            <div class="title">SEO vs Social Media: Where to Invest?</div>
+            <div class="arrow">→</div>
+        </a>
+
+        <a href="blog/common-seo-mistakes-local-sites-make.html" class="article-card">
+            <div class="number">03</div>
+            <div class="title">Common SEO Mistakes Local Sites Make</div>
+            <div class="arrow">→</div>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
