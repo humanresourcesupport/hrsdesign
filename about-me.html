@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | hrsgraphic - One Designer, No Bullsh*t</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --yellow: #FFD700;
+            --black: #111111;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .manifesto-title {
+            font-size: 5rem;
+            line-height: 0.8;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--yellow);
+        }
+
+        .bio-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            border-left: 2px solid var(--yellow);
+            padding-left: 20px;
+        }
+
+        .credo-section {
+            margin-top: 100px;
+            border-top: 1px solid #333;
+            padding-top: 40px;
+        }
+
+        .credo-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .credo-card {
+            padding: 30px;
+            border: 1px solid var(--yellow);
+        }
+
+        .credo-card h3 {
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .manifesto-title { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="about-grid">
+        <div>
+            <h1 class="manifesto-title">I WORK<br>ALONE.</h1>
+        </div>
+        <div class="bio-text">
+            <p>I’m <strong>hrsgraphic</strong>. I don't have a fancy office or a team of account managers to hide behind. When you hire me, you get my eyes, my hands, and my brain on your project.</p>
+            <p>I help local businesses in <strong>Siliguri</strong> stop looking like amateurs and start looking like leaders. I build digital tools that actually work, not just look pretty.</p>
+        </div>
+    </div>
+
+    <section class="credo-section">
+        <h2 style="text-transform: uppercase; letter-spacing: 5px; margin-bottom: 30px;">Why Work With Me?</h2>
+        <div class="credo-box">
+            <div class="credo-card">
+                <h3>No Agency Fees</h3>
+                <p>You aren't paying for my rent or my secretary. You're paying for results.</p>
+            </div>
+            <div class="credo-card">
+                <h3>Direct Line</h3>
+                <p>No tickets. No waiting. You talk directly to the person doing the work.</p>
+            </div>
+            <div class="credo-card">
+                <h3>Local Heart</h3>
+                <p>I know the Siliguri market because I live here. I know what your customers want.</p>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align: center; margin-top: 80px;">
+        <a href="work.html" style="color: var(--yellow); font-weight: bold; text-decoration: none; font-size: 1.5rem;">[ SEE MY WORK ]</a>
+    </div>
+</div>
+
+</body>
+</html>
