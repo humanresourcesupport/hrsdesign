@@ -1,39 +1,147 @@
+/* GLOBAL SETTINGS */
 :root {
-    --primary-yellow: #FFD700;
-    --bg-black: #111111;
+    --yellow: #FFD700;
+    --black: #111111;
+    --border: #333333;
+    --white: #ffffff;
 }
 
-body { background: var(--bg-black); color: white; font-family: Arial, sans-serif; margin: 0; }
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Helvetica', Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
 
-/* The Yellow Box from your screenshot */
-.highlight-box { 
-    background: var(--primary-yellow); 
-    color: black; 
-    padding: 0 10px; 
+/* NAVIGATION - Matches your screenshot */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo { font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+.logo span { color: var(--yellow); }
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* HERO SECTION */
+.hero {
+    padding: 100px 5% 60px;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.highlight-box {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 0 10px;
+    display: inline-block;
 }
 
 .yellow-btn {
-    background: var(--primary-yellow);
-    color: black;
+    background: var(--yellow);
+    color: var(--black);
     padding: 15px 30px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 900;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 30px;
+    text-transform: uppercase;
 }
 
-/* Service Card Grid */
+/* SERVICE GRID - The 01, 02, 03 layout */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    border-top: 1px solid #333;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    border-top: 1px solid var(--border);
 }
 
 .s-card {
-    padding: 40px;
-    border-right: 1px solid #333;
-    border-bottom: 1px solid #333;
+    padding: 60px 40px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--white);
+    transition: 0.3s;
+}
+
+.s-card:hover { background: #1a1a1a; }
+
+.s-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* FOOTER & SOCIALS */
+footer {
+    padding: 80px 5% 40px;
+}
+
+.footer-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.social-circle {
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.social-circle:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--black);
+}
+
+.copyright, .location {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 5px 0;
+}
+
+.blog-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
     text-decoration: none;
     color: white;
 }
