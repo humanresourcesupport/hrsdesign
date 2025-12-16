@@ -6,120 +6,139 @@
     <title>HRSGRAPHIC | Be Impossible To Ignore</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Animation for the profile photo */
+        /* Floating Animation for Profile */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
 
+        /* Menu Button Styling */
+        .menu-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            font-weight: 900;
+            color: black;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        /* Fullscreen Overlay */
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            background-color: var(--black);
+            overflow-x: hidden;
+            transition: 0.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .overlay a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 3rem;
+            color: white;
+            display: block;
+            font-weight: 900;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover {
+            color: var(--yellow);
+            letter-spacing: 5px;
+        }
+
         .profile-wrapper {
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
-            padding-top: 20px;
+            padding-top: 100px;
         }
 
         .round-logo {
-            width: 130px; 
-            height: 130px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
-            border-radius: 50%; 
-            border: 4px solid #FFD700; 
-            filter: grayscale(100%);
-            transition: 0.5s ease;
+            border-radius: 50%;
+            border: 4px solid var(--yellow);
             animation: float 4s ease-in-out infinite;
         }
 
-        .round-logo:hover {
-            filter: grayscale(0%);
-            border-color: #ffffff;
-        }
-
-        /* Centering the Navigation */
-        nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 0;
-            border-bottom: 1px solid #333;
-        }
-
-        .nav-links {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .nav-links a:hover {
-            color: #FFD700;
-        }
-
-        .hero { text-align: center; padding: 60px 5%; }
+        .hero { text-align: center; padding: 50px 5%; }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">HRS<span>GRAPHIC</span></div>
-    <div class="nav-links">
-        <a href="work.html">Work</a>
-        <a href="services/website-design-for-local-business.html">Services</a>
-        <a href="about-me.html">About Me</a>
-        <a href="blog.html">Blogs</a>
-        <a href="siliguri/seo-for-shops-in-siliguri.html">Siliguri SEO</a>
-        <a href="contact.html">Contact</a>
+<div class="menu-toggle" onclick="openNav()">MENU</div>
+
+<div id="myNav" class="overlay">
+    <div class="menu-toggle" style="background: white;" onclick="closeNav()">X</div>
+    <div class="overlay-content">
+        <a href="work.html" onclick="closeNav()">Work</a>
+        <a href="services/website-design-for-local-business.html" onclick="closeNav()">Services</a>
+        <a href="about-me.html" onclick="closeNav()">About Me</a>
+        <a href="blog.html" onclick="closeNav()">Blogs</a>
+        <a href="siliguri/seo-for-shops-in-siliguri.html" onclick="closeNav()">Siliguri SEO</a>
+        <a href="contact.html" onclick="closeNav()">Contact</a>
     </div>
-</nav>
+</div>
 
 <header class="hero">
     <div class="profile-wrapper">
         <img src="https://i.ibb.co/qF5vvMbx/IMG-20251213-023411-322.webp" alt="HRSGRAPHIC Founder" class="round-logo">
     </div>
-
     <h1>BE IMPOSSIBLE <br>TO <span class="highlight-box">IGNORE.</span></h1>
-    <p>High-ranking websites and bold branding for the Siliguri market.</p>
+    <p>Premium Digital Solutions in Siliguri.</p>
     <a href="work.html" class="yellow-btn">VIEW MY WORK</a>
 </header>
 
 <section class="service-grid">
     <a href="siliguri/seo-for-shops-in-siliguri.html" class="s-card">
         <h3>01. LOCAL SEO</h3>
-        <p>Dominate Google Maps and Search results in Siliguri.</p>
+        <p>Dominate Siliguri Search.</p>
     </a>
-    
     <a href="services/website-design-for-local-business.html" class="s-card">
         <h3>02. WEB DESIGN</h3>
-        <p>Clean, fast, and mobile-ready websites for local businesses.</p>
+        <p>Built for conversion.</p>
     </a>
-
     <a href="services/branding-and-graphics.html" class="s-card">
         <h3>03. BRANDING</h3>
-        <p>Bold visual identities that make your shop stand out.</p>
+        <p>Stand out locally.</p>
     </a>
 </section>
 
-<footer>
-    <div class="social-links" style="justify-content: center; margin-bottom: 20px;">
-        <a href="#" class="social-circle">IG</a>
-        <a href="#" class="social-circle">FB</a>
-        <a href="#" class="social-circle">LN</a>
-    </div>
-    <div style="text-align: center; font-size: 0.8rem; color: #888;">
-        © 2025 HRSGRAPHIC | Based in Siliguri, West Bengal.
-    </div>
-</footer>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
 
 </body>
 </html>
