@@ -3,111 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRSGRAPHIC | Be Impossible To Ignore</title>
+    <title>hrsdesign | Be Impossible To Ignore</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Animation for the profile photo */
+        /* Profile Animation */
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
 
-        .profile-wrapper {
+        .profile-container {
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
-            padding-top: 20px;
         }
 
         .round-logo {
-            width: 130px; 
+            width: 130px;
             height: 130px;
+            border-radius: 50%;
+            border: 4px solid var(--yellow);
             object-fit: cover;
-            border-radius: 50%; 
-            border: 4px solid #FFD700; 
             filter: grayscale(100%);
-            transition: 0.5s ease;
-            animation: float 4s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
+            transition: 0.5s;
         }
 
-        .round-logo:hover {
-            filter: grayscale(0%);
-            border-color: #ffffff;
-        }
+        .round-logo:hover { filter: grayscale(0%); }
 
-        /* Centering the Navigation */
-        nav {
+        /* Navigation */
+        .main-nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 30px 0;
+            padding: 20px 5%;
+            background: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             border-bottom: 1px solid #333;
         }
 
-        .nav-links {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
+        .nav-links { display: flex; gap: 20px; }
         .nav-links a {
             text-decoration: none;
             color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-size: 0.7rem;
             text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
         }
 
-        .nav-links a:hover {
-            color: #FFD700;
+        /* FAQ Styling */
+        .faq-grid details {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 50px;
+            padding: 20px 30px;
+            cursor: pointer;
+            color: black;
+        }
+        .faq-grid summary {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 900;
         }
 
-        .hero { text-align: center; padding: 60px 5%; }
+        /* Review Section */
+        .testimonial-section {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 80px 5%;
+        }
+
+        /* Connect Form */
+        .connect-card {
+            background: #111;
+            padding: 50px 30px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 40px 5%;
+        }
+        .hrs-form input {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 50px;
+            border: none;
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">HRS<span>GRAPHIC</span></div>
+<nav class="main-nav">
+    <div class="logo">HRS<span>DESIGN</span></div>
     <div class="nav-links">
         <a href="work.html">Work</a>
-        <a href="services/website-design-for-local-business.html">Services</a>
-        <a href="about-me.html">About Me</a>
+        <a href="about-me.html">About</a>
         <a href="blog.html">Blogs</a>
-        <a href="siliguri/seo-for-shops-in-siliguri.html">Siliguri SEO</a>
+        <a href="siliguri/seo-for-shops-in-siliguri.html">Siliguri</a>
         <a href="contact.html">Contact</a>
     </div>
 </nav>
 
-<header class="hero">
-    <div class="profile-wrapper">
-        <img src="https://i.ibb.co/qF5vvMbx/IMG-20251213-023411-322.webp" alt="HRSGRAPHIC Founder" class="round-logo">
+<header class="hero" style="text-align: center; padding: 80px 5%;">
+    <div class="profile-container">
+        <img src="https://i.ibb.co/qF5vvMbx/IMG-20251213-023411-322.webp" alt="hrsdesign Founder" class="round-logo">
     </div>
-
     <h1>BE IMPOSSIBLE <br>TO <span class="highlight-box">IGNORE.</span></h1>
-    <p>High-ranking websites and bold branding for the Siliguri market.</p>
+    <p>Premium Digital Strategy for Siliguri Businesses.</p>
     <a href="work.html" class="yellow-btn">VIEW MY WORK</a>
 </header>
 
-<section class="service-grid">
-    <a href="siliguri/seo-for-shops-in-siliguri.html" class="s-card">
-        <h3>01. LOCAL SEO</h3>
-        <p>Dominate Google Maps and Search results in Siliguri.</p>
-    </a>
-    
-    <a href="services/website-design-for-local-business.html" class="s-card">
-        <h3>02. WEB DESIGN</h3>
-        <p>Clean, fast, and mobile-ready websites for local businesses.</p>
-    </a>
+<section class="testimonial-section">
+    <h3 style="font-size: 3rem; font-weight: 900;">4.8 ★★★★★</h3>
+    <p style="font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Rating from local clients</p>
+    <div style="margin-top: 30px; border-left: 5px solid black; padding-left: 20px;">
+        <p style="font-size: 1.5rem; font-weight: 800; text-transform: uppercase;">"The hands-on approach and cutting-edge design provided me with invaluable brand growth."</p>
+        <p>— AYUSHI</p>
+    </div>
+</section>
 
-    <a href="services/branding-and-graphics.html" class="s-card">
-        <h3>03. BRANDING</h3>
-        <p>Bold visual identities that make your shop stand out.</p>
-    </a>
+<section style="padding: 80px 5%;">
+    <h2 style="margin-bottom: 40px; text-align: center;">FAQS</h2>
+    <div class="faq-grid">
+        <details>
+            <summary>What is hrsdesign? <span>+</span></summary>
+            <p>I am a one-man army freelancing brand providing high-end design and SEO.</p>
+        </details>
+        <details>
+            <summary>How long are the courses/projects? <span>+</span></summary>
+            <p>Timeline varies from 7 to 14 days based on project requirements.</p>
+        </details>
+        <details>
+            <summary>Do you offer offline meetings? <span>+</span></summary>
+            <p>I work entirely digitally and do not have an offline office.</p>
+        </details>
+    </div>
+</section>
+
+<section class="connect-card">
+    <h2 style="color: white; font-weight: 900;">CONNECT WITH US</h2>
+    <p style="color: #888; margin-bottom: 30px;">To see what you can achieve!</p>
+    <form class="hrs-form">
+        <input type="text" placeholder="Full Name">
+        <input type="tel" placeholder="Contact Number">
+        <input type="email" placeholder="Email Address">
+        <button type="submit" class="yellow-btn" style="width: 100%; border: none; cursor: pointer;">LET'S CONNECT 😊</button>
+    </form>
 </section>
 
 <footer>
@@ -116,9 +161,7 @@
         <a href="#" class="social-circle">FB</a>
         <a href="#" class="social-circle">LN</a>
     </div>
-    <div style="text-align: center; font-size: 0.8rem; color: #888;">
-        © 2025 HRSGRAPHIC | Based in Siliguri, West Bengal.
-    </div>
+    <p style="text-align: center; opacity: 0.5; font-size: 0.7rem;">© 2025 HRSDESIGN | SILIGURI</p>
 </footer>
 
 </body>
