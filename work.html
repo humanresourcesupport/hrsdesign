@@ -3,68 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work | hrsgraphic</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Work | hrsdesign - Portfolio</title>
     <style>
-        .work-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            border-top: 1px solid #333;
+        :root { 
+            --yellow: #FFD700; 
+            --black: #000000; 
+            --white: #ffffff; 
+            --grey: #111111;
         }
-        .project-card {
-            padding: 80px 5%;
-            border-bottom: 1px solid #333;
+
+        body { 
+            background: var(--black); 
+            color: var(--white); 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden; 
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: var(--black); position: sticky; top: 0; z-index: 2000;
+            border-bottom: 1px solid #222;
+        }
+        .logo { font-weight: 900; font-size: 1.2rem; text-decoration: none; color: white; text-transform: uppercase; }
+        .logo span { color: var(--yellow); }
+
+        .menu-toggle { width: 30px; height: 20px; position: relative; cursor: pointer; z-index: 2101; }
+        .bar { width: 100%; height: 3px; background: var(--yellow); position: absolute; transition: 0.4s; }
+        .bar1 { top: 0; } .bar2 { top: 50%; transform: translateY(-50%); } .bar3 { bottom: 0; }
+
+        .menu-active .bar1 { transform: rotate(-45deg); top: 9px; }
+        .menu-active .bar2 { opacity: 0; }
+        .menu-active .bar3 { transform: rotate(45deg); bottom: 8px; }
+
+        .nav-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98); z-index: 2100;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden; transition: 0.4s ease-in-out;
+        }
+        .nav-overlay.open { opacity: 1; visibility: visible; }
+        .overlay-links a { text-decoration: none; color: white; font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin: 15px 0; display: block; }
+
+        /* --- PORTFOLIO GRID --- */
+        .work-hero { padding: 80px 5% 40px; text-align: center; }
+        .highlight-box { background: var(--yellow); color: black; padding: 0 10px; }
+
+        .portfolio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            padding: 40px 5% 80px; 
+        }
+
+        .project-card { 
+            background: #080808; 
+            border: 1px solid #222; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            transition: 0.4s;
             text-decoration: none;
             color: white;
-            display: flex;
-            flex-direction: column;
-            transition: 0.3s;
         }
-        .project-card:hover { background: #1a1a1a; }
-        .project-category { color: var(--yellow); font-weight: 900; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px; }
-        .project-title { font-size: clamp(2rem, 6vw, 4rem); font-weight: 900; text-transform: uppercase; line-height: 1; }
+        .project-card:hover { border-color: var(--yellow); transform: translateY(-10px); }
+
+        .project-img { 
+            width: 100%; aspect-ratio: 1/1; object-fit: cover; 
+            filter: grayscale(100%); transition: 0.5s; 
+        }
+        .project-card:hover .project-img { filter: grayscale(0%); }
+
+        .project-info { padding: 25px; }
+        .project-tag { color: var(--yellow); font-size: 0.7rem; font-weight: 900; text-transform: uppercase; }
+        .project-title { font-size: 1.3rem; font-weight: 900; margin: 10px 0; text-transform: uppercase; }
+        
+        /* Video Overlay */
+        .play-overlay {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: var(--yellow); width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; opacity: 0.8;
+        }
+        .play-overlay svg { width: 25px; height: 25px; fill: black; }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">HRS<span>GRAPHIC</span></div>
-    <div class="nav-links">
-        <a href="index.html">HOME</a>
-        <a href="services/website-design-for-local-business.html">SERVICES</a>
-        <a href="contact.html">CONTACT</a>
+<header class="nav-header">
+    <a href="index.html" class="logo">HRS<span>DESIGN</span></a>
+    <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </div>
+</header>
+
+<nav class="nav-overlay" id="navOverlay" onclick="closeMenuOutside(event)">
+    <div class="overlay-links">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="work.html" onclick="toggleMenu()">Work</a>
+        <a href="about-me.html" onclick="toggleMenu()">About</a>
+        <a href="blog.html" onclick="toggleMenu()">Blogs</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
     </div>
 </nav>
 
-<div class="hero" style="text-align: left; padding-bottom: 40px;">
-    <h1>SELECTED <br><span class="highlight-box">PROJECTS.</span></h1>
-    <p>Helping brands stand out in a crowded market.</p>
-</div>
+<section class="work-hero">
+    <h1>SELECTED <span class="highlight-box">WORKS.</span></h1>
+    <p style="opacity: 0.6; margin-top: 20px;">Proof of strategy and high-end design.</p>
+</section>
 
-<section class="work-grid">
-    <div class="project-card">
-        <span class="project-category">01 // BRANDING</span>
-        <h2 class="project-title">Local Shop Identity</h2>
-        <p>Complete visual overhaul for a Siliguri-based retail brand.</p>
-    </div>
 
-    <div class="project-card">
-        <span class="project-category">02 // WEB DESIGN</span>
-        <h2 class="project-title">Service Landing Page</h2>
-        <p>High-conversion website built for local lead generation.</p>
-    </div>
 
-    <div class="project-card">
-        <span class="project-category">03 // SEO STRATEGY</span>
-        <h2 class="project-title">Google Maps Dominance</h2>
-        <p>Taking a local business from page 10 to the top 3 on Maps.</p>
-    </div>
+<section class="portfolio-grid">
+    
+    <a href="https://www.instagram.com/p/DQya3GuEoxp/?img_index=1" target="_blank" class="project-card">
+        <img src="thumb1.jpg" class="project-img" alt="Branding Carousel">
+        <div class="project-info">
+            <div class="project-tag">Branding</div>
+            <div class="project-title">Be Impossible To Ignore</div>
+            <div class="project-link">View Carousel →</div>
+        </div>
+    </a>
+
+    <a href="https://www.instagram.com/reel/DRIFY9YEm__/" target="_blank" class="project-card">
+        <div style="position: relative;">
+            <img src="thumb-reel.jpg" class="project-img" alt="Motion Reel">
+            <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="project-info">
+            <div class="project-tag">Motion Design</div>
+            <div class="project-title">Dynamic Brand Intro</div>
+            <div class="project-link">Watch Reel →</div>
+        </div>
+    </a>
+
+    <a href="https://www.instagram.com/p/DQ-DexVk8tS/?img_index=1" target="_blank" class="project-card">
+        <img src="thumb3.jpg" class="project-img" alt="Design Post">
+        <div class="project-info">
+            <div class="project-tag">Visual Identity</div>
+            <div class="project-title">Impactful Brand Messaging</div>
+            <div class="project-link">View Carousel →</div>
+        </div>
+    </a>
+
+    <a href="https://www.instagram.com/p/DSLRgBEE7U3/" target="_blank" class="project-card">
+        <img src="thumb4.jpg" class="project-img" alt="Strategy Post">
+        <div class="project-info">
+            <div class="project-tag">Strategy</div>
+            <div class="project-title">Value-Driven Content</div>
+            <div class="project-link">View Carousel →</div>
+        </div>
+    </a>
+
+    <a href="https://www.instagram.com/p/DSLUL6Ckyzn/" target="_blank" class="project-card">
+        <img src="thumb5.jpg" class="project-img" alt="UI Design">
+        <div class="project-info">
+            <div class="project-tag">Digital Strategy</div>
+            <div class="project-title">Product Roadmap Design</div>
+            <div class="project-link">View Carousel →</div>
+        </div>
+    </a>
+
 </section>
 
 <footer>
-    <div class="footer-title">Ready to be next?</div>
-    <a href="contact.html" class="yellow-btn">START YOUR PROJECT</a>
+    © 2025 hrsdesign | Be Impossible To Ignore
 </footer>
+
+<script>
+    function toggleMenu() {
+        const toggle = document.getElementById('menuToggle');
+        const overlay = document.getElementById('navOverlay');
+        toggle.classList.toggle('menu-active');
+        overlay.classList.toggle('open');
+        document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : 'auto';
+    }
+    function closeMenuOutside(e) {
+        if (e.target.id === "navOverlay") { toggleMenu(); }
+    }
+</script>
 
 </body>
 </html>
