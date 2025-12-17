@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hrsdesign | Be Impossible To Ignore</title>
+    <title>hrsdesign | One-Man Army</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* --- GLOBAL BRAND VARIABLES --- */
-        :root {
-            --yellow: #FFD700;
-            --black: #000000;
-            --white: #ffffff;
+        :root { 
+            --yellow: #FFD700; 
+            --black: #000000; 
+            --white: #ffffff; 
             --grey: #111111;
         }
 
-        body { background: var(--black); color: var(--white); margin: 0; font-family: sans-serif; overflow-x: hidden; }
+        body { 
+            background: var(--black); 
+            color: var(--white); 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden; 
+        }
 
-        /* --- NAVIGATION & HAMBURGER --- */
+        /* --- NAVIGATION & MORPHING HAMBURGER --- */
         .nav-header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; background: var(--black); position: sticky; top: 0; z-index: 2000;
@@ -27,59 +32,66 @@
 
         .menu-toggle { width: 30px; height: 20px; position: relative; cursor: pointer; z-index: 2101; }
         .bar { width: 100%; height: 3px; background: var(--yellow); position: absolute; transition: 0.4s; border-radius: 2px; }
-        .bar1 { top: 0; }
-        .bar2 { top: 50%; transform: translateY(-50%); }
-        .bar3 { bottom: 0; }
+        .bar1 { top: 0; } .bar2 { top: 50%; transform: translateY(-50%); } .bar3 { bottom: 0; }
 
+        /* Animation to 'X' */
         .menu-active .bar1 { transform: rotate(-45deg); top: 9px; }
         .menu-active .bar2 { opacity: 0; }
         .menu-active .bar3 { transform: rotate(45deg); bottom: 8px; }
 
+        /* Full Screen Overlay */
         .nav-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.98); z-index: 2100;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            opacity: 0; visibility: hidden; transition: 0.5s;
+            opacity: 0; visibility: hidden; transition: 0.4s ease-in-out;
         }
         .nav-overlay.open { opacity: 1; visibility: visible; }
-        .overlay-links { display: flex; flex-direction: column; gap: 25px; text-align: center; }
-        .overlay-links a { text-decoration: none; color: white; font-size: 2rem; font-weight: 900; text-transform: uppercase; transition: 0.3s; }
+        .overlay-links { text-align: center; }
+        .overlay-links a { 
+            text-decoration: none; color: white; font-size: 2.5rem; font-weight: 900; 
+            text-transform: uppercase; margin: 15px 0; display: block; transition: 0.3s;
+        }
         .overlay-links a:hover { color: var(--yellow); }
 
-        /* --- HERO & PROFILE --- */
+        /* --- HERO SECTION --- */
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .hero { text-align: center; padding: 60px 5%; }
-        .profile-container { display: flex; justify-content: center; margin-bottom: 25px; }
-        .round-logo {
-            width: 130px; height: 130px; border-radius: 50%; border: 4px solid var(--yellow);
-            object-fit: cover; filter: grayscale(100%); transition: 0.5s; animation: float 5s infinite ease-in-out;
+        .hero { text-align: center; padding: 80px 5%; }
+        .round-logo { 
+            width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--yellow); 
+            object-fit: cover; animation: float 5s infinite ease-in-out; filter: grayscale(100%);
         }
-        .round-logo:hover { filter: grayscale(0%); transform: scale(1.05); }
-        h1 { font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 10px; }
+        .hero h1 { font-size: 3rem; font-weight: 900; line-height: 1; margin: 25px 0 10px; }
         .highlight-box { background: var(--yellow); color: black; padding: 0 10px; }
 
-        /* --- QUICK LINKS / SOCIALS --- */
-        .social-flex { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 30px 0; flex-wrap: wrap; }
-        .social-btn { width: 45px; height: 45px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; background: #111; transition: 0.3s; }
-        .social-btn svg { width: 18px; height: 18px; fill: white; }
-        .social-btn:hover { background: var(--yellow); border-color: var(--yellow); }
-        .social-btn:hover svg { fill: black; }
-        .portal-link { background: var(--yellow); color: black; padding: 12px 25px; border-radius: 50px; font-weight: 900; text-decoration: none; font-size: 0.7rem; letter-spacing: 1px; }
-
         /* --- TESTIMONIAL SLIDER --- */
-        .testimonial-section { background: var(--yellow); color: var(--black); padding: 80px 5%; position: relative; }
-        .slider-wrapper { overflow: hidden; }
-        .testimonial-container { display: flex; transition: transform 0.5s ease-in-out; }
+        .testimonial-section { background: var(--yellow); color: black; padding: 80px 5%; }
+        .slider-wrapper { overflow: hidden; width: 100%; }
+        .testimonial-container { display: flex; transition: 0.5s ease-in-out; }
         .testimonial-slide { min-width: 100%; box-sizing: border-box; }
-        .testimonial-slide p { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; border-left: 5px solid black; padding-left: 20px; }
-        .slider-nav { margin-top: 30px; display: flex; gap: 15px; }
-        .nav-btn { background: black; color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; }
+        .testimonial-slide p { font-size: 1.5rem; font-weight: 900; text-transform: uppercase; border-left: 6px solid black; padding-left: 20px; line-height: 1.2; }
 
         /* --- FAQ --- */
-        .faq-section { padding: 80px 5%; }
-        .faq-grid details { background: var(--white); margin-bottom: 12px; border-radius: 50px; padding: 18px 30px; cursor: pointer; color: black; }
-        .faq-grid summary { list-style: none; display: flex; justify-content: space-between; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; }
-        .faq-grid p { padding-top: 10px; font-size: 0.9rem; opacity: 0.8; }
+        .faq-section { padding: 80px 5%; max-width: 800px; margin: 0 auto; }
+        .faq-section h2 { text-align: center; font-weight: 900; margin-bottom: 40px; font-size: 2rem; }
+        details { background: var(--white); color: black; border-radius: 50px; padding: 20px 30px; margin-bottom: 15px; cursor: pointer; }
+        summary { list-style: none; display: flex; justify-content: space-between; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; }
+
+        /* --- FOOTER SOCIALS & PORTAL --- */
+        .quick-links-footer { padding: 80px 5%; background: #080808; text-align: center; border-top: 1px solid #111; }
+        .social-flex { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
+        .social-btn { 
+            width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+            display: flex; align-items: center; justify-content: center; background: #111; transition: 0.3s; 
+        }
+        .social-btn svg { width: 20px; height: 20px; fill: white; }
+        .social-btn:hover { background: var(--yellow); border-color: var(--yellow); }
+        .social-btn:hover svg { fill: black; }
+        
+        .portal-link { 
+            display: inline-block; background: var(--yellow); color: black; padding: 15px 35px; 
+            border-radius: 50px; font-weight: 900; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +105,7 @@
     </div>
 </header>
 
-<nav class="nav-overlay" id="navOverlay">
+<nav class="nav-overlay" id="navOverlay" onclick="closeMenuOutside(event)">
     <div class="overlay-links">
         <a href="work.html" onclick="toggleMenu()">Work</a>
         <a href="about-me.html" onclick="toggleMenu()">About</a>
@@ -108,71 +120,75 @@
         <img src="https://i.ibb.co/qF5vvMbx/IMG-20251213-023411-322.webp" alt="hrsdesign" class="round-logo">
     </div>
     <h1>BE IMPOSSIBLE TO <br><span class="highlight-box">IGNORE.</span></h1>
-    <p style="opacity:0.7">One-Man Army Digital Agency | Based in Siliguri</p>
-
-    <div class="social-flex">
-        <a href="#" class="social-btn" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="#" class="social-btn" title="Facebook"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
-        <a href="#" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-        <a href="#" class="social-btn" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        <a href="#" class="social-btn" title="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.23 10.23 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg></a>
-        <a href="#" class="social-btn" title="Pinterest"><svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.72-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.16-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.398 2.967 7.398 6.93 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.607 0 11.985-5.365 11.985-11.987C24.02 5.367 18.643 0 12.017 0z"/></svg></a>
-        
-        <a href="http://www.hrsjobs.xyz" target="_blank" class="portal-link">VISIT HRSJOBS.XYZ</a>
-    </div>
+    <p style="opacity: 0.6; margin-top: 20px;">Strategy & Design by a One-Man Army.</p>
 </section>
 
 <section class="testimonial-section">
     <div class="slider-wrapper">
         <div class="testimonial-container" id="testimonialSlider">
-            <div class="testimonial-slide"><p>"Hands-on approach provided me with invaluable brand growth." <br>— AYUSHI</p></div>
+            <div class="testimonial-slide"><p>"The hands-on approach provided me with invaluable brand growth." <br>— AYUSHI</p></div>
             <div class="testimonial-slide"><p>"Best SEO results in Siliguri. My shop is finally on Page 1." <br>— RAHUL K.</p></div>
             <div class="testimonial-slide"><p>"Clean, professional, and fast. A true one-man army." <br>— PRIYA S.</p></div>
             <div class="testimonial-slide"><p>"Transformed our dull website into a high-converting machine." <br>— AMAN V.</p></div>
-            <div class="testimonial-slide"><p>"Exceptional branding skills. Highly recommended." <br>— SNEHA M.</p></div>
+            <div class="testimonial-slide"><p>"Exceptional branding skills. Highly recommended for startups." <br>— SNEHA M.</p></div>
             <div class="testimonial-slide"><p>"Digital strategy helped us double our local inquiries." <br>— VIKRAM G.</p></div>
-            <div class="testimonial-slide"><p>"Professional work with a personal touch." <br>— ANKIT T.</p></div>
+            <div class="testimonial-slide"><p>"Professional work with a personal touch. Great communication." <br>— ANKIT T.</p></div>
         </div>
     </div>
-    <div class="slider-nav">
-        <button class="nav-btn" onclick="moveSlide(-1)">←</button>
-        <button class="nav-btn" onclick="moveSlide(1)">→</button>
+    <div style="margin-top: 30px;">
+        <button onclick="moveSlide(-1)" style="background:black; color:white; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer;">←</button>
+        <button onclick="moveSlide(1)" style="background:black; color:white; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer; margin-left:10px;">→</button>
     </div>
 </section>
 
 <section class="faq-section">
-    <h2 style="text-align: center; margin-bottom: 40px; font-weight: 900;">FAQS</h2>
+    <h2>FREQUENTLY ASKED</h2>
     <div class="faq-grid">
-        <details><summary>What is hrsdesign? <span>+</span></summary><p>A premium one-man army digital agency focusing on high-end results.</p></details>
+        <details><summary>What is hrsdesign? <span>+</span></summary><p>A premium one-man army digital agency specializing in high-end design.</p></details>
         <details><summary>Do you have a physical office? <span>+</span></summary><p>I work entirely digitally and do not have an offline office.</p></details>
-        <details><summary>How long does a project take? <span>+</span></summary><p>Most projects are completed within 7-14 days.</p></details>
+        <details><summary>How long does a project take? <span>+</span></summary><p>Most projects are completed within 7 to 14 days.</p></details>
         <details><summary>Can I manage my own site later? <span>+</span></summary><p>Yes, I build systems that empower you to take full control.</p></details>
-        <details><summary>Do you offer branding? <span>+</span></summary><p>I provide complete visual identities, from logos to strategies.</p></details>
+        <details><summary>Do you offer branding? <span>+</span></summary><p>I provide complete visual identities, from logos to brand strategies.</p></details>
         <details><summary>Is your SEO specific to Siliguri? <span>+</span></summary><p>I specialize in Local SEO to dominate the North Bengal search market.</p></details>
         <details><summary>Who runs the business? <span>+</span></summary><p>I am doing freelancing alone and I am a one-man army.</p></details>
     </div>
 </section>
 
-<footer style="text-align: center; padding: 40px 0; opacity: 0.5; font-size: 0.7rem;">
-    © 2025 hrsdesign | Based in Siliguri
-</footer>
+<section class="quick-links-footer">
+    <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 3px; color: #555;">Digital Presence</p>
+    <div class="social-flex">
+        <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+        <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+    </div>
+    <a href="http://www.hrsjobs.xyz" target="_blank" class="portal-link">OPEN HRSJOBS.XYZ</a>
+    <footer style="margin-top: 50px; opacity: 0.3; font-size: 0.7rem;">© 2025 hrsdesign</footer>
+</section>
 
 <script>
-    // --- NAV LOGIC ---
+    // NAVIGATION LOGIC
     function toggleMenu() {
         const toggle = document.getElementById('menuToggle');
         const overlay = document.getElementById('navOverlay');
         toggle.classList.toggle('menu-active');
         overlay.classList.toggle('open');
+        // Prevent body from scrolling when menu is open
         document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : 'auto';
     }
 
-    // --- SLIDER LOGIC ---
-    let currentSlide = 0;
+    // CLOSE MENU IF CLICKED OUTSIDE LINKS
+    function closeMenuOutside(e) {
+        if (e.target.id === "navOverlay") {
+            toggleMenu();
+        }
+    }
+
+    // TESTIMONIAL SLIDER LOGIC
+    let current = 0;
     const slides = document.querySelectorAll('.testimonial-slide');
-    function moveSlide(dir) {
-        currentSlide = (currentSlide + dir + slides.length) % slides.length;
-        document.getElementById('testimonialSlider').style.transform = `translateX(-${currentSlide * 100}%)`;
+    function moveSlide(n) {
+        current = (current + n + slides.length) % slides.length;
+        document.getElementById('testimonialSlider').style.transform = `translateX(-${current * 100}%)`;
     }
 </script>
 
